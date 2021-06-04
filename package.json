@@ -1,0 +1,19 @@
+{
+  "name": "ghwrapper",
+  "version": "1.0.0",
+  "description": "dd",
+  "main": "wrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rurkowsky/ghwrapper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rurkowsky/ghwrapper/issues"
+  },
+  "homepage": "https://github.com/rurkowsky/ghwrapper#readme"
+}
