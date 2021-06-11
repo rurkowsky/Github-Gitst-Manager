@@ -1,7 +1,7 @@
 {
   "name": "ghwrapper",
   "version": "1.0.0",
-  "description": "krotki",
+  "description": "krotki123",
   "main": "wrapper.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
