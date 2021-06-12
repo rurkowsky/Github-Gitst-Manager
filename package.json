@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rurkowsky/ghwrapper/issues"
   },
-  "homepage": "https://github.com/rurkowsky/ghwrapper#readme"
+  "homepage": "https://github.com/rurkowsky/ghwrapper#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
