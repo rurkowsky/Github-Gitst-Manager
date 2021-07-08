@@ -2,11 +2,9 @@ import './App.css';
 import React from 'react';
 const axios = require('axios');
 export default class Wrapper extends React.Component{
-  state = {
-      gists: []
-    }
   constructor(token) {
     super(token);
+    this.state = { gists: [] };
     this.token = "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"
     this.client = axios.create({
       baseURL: 'https://gist.github.com/rurkowsky/5f432739e63bf4bf06e97d69908b793a.js',
@@ -18,8 +16,13 @@ export default class Wrapper extends React.Component{
         'X-Custom-Header': this.token,
         
       }
+      
     })
+   
+    
   }
+    
+  
 /*
   getRequest(path) {
     return this.client.get(path)
@@ -57,11 +60,13 @@ export default class Wrapper extends React.Component{
         const gists = response.data;
         this.setState({gists})
         console.log(response.data);
-        console.log(response.config);
+        //console.log(response.config);
       })
       .catch((error) => {
         console.log(error);
       });
+      
+      
 };
   
 
@@ -69,15 +74,11 @@ export default class Wrapper extends React.Component{
     
 render(){
   return(
-    /*<div>
+   <div>
      { this.state.gists.map(gist => <p>{gist.id}</p>)}
      
-    </div>*/
-
-    <div>
-      {React.Children.map(children, function(gists)}
     </div>
-   
+
   
   
   
