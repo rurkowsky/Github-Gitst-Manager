@@ -13,53 +13,28 @@ export default class Wrapper extends React.Component{
         'Accept': 'application/vnd.github.v3+json',
         'Authorization': 'token ' + this.token,
         'Access-Control-allow-origin' : '*',
-        'X-Custom-Header': this.token,
-        
+        'X-Custom-Header': this.token, 
       }
-      
-    })
-   
-    
+    })  
   }
-    
-  
-/*
-  getRequest(path) {
-    return this.client.get(path)
-  }
-
-  postRequest(path, payload) {
-    return this.client.post(path, payload)
-  }
-
-  root() {
-    return this.getRequest('/')
-  }
-
   createGist(payload) {
     return this.postRequest('/gists', payload)
   }
-
-  getGist(gistId) {
-    return this.getRequest(`/gists/${gistId}`)
-  }*/
+  
   componentDidMount() {
      axios.get('https://api.github.com/users/rurkowsky/gists',{
       responseType: 'json',
       headers: {
-        /*'Accept': 'application/vnd.github.v3+json',
-        'Authorization': "token"+ this.token,
-        'Access-Control-allow-origin' : '*',
-        'X-Custom-Header': this.token,
-        'Content-Type': 'application/json'
-        */
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': 'token ' + this.token
       },
       
       })
-      .then(response => {
+      
+      .then(response => {     
         const gists = response.data;
         this.setState({gists})
-        console.log(response.data);
+        console.log(gists);
         //console.log(response.config);
       })
       .catch((error) => {
@@ -67,21 +42,31 @@ export default class Wrapper extends React.Component{
       });
       
       
-};
-  
-
-  
-    
+};   
 render(){
+  
   return(
-   <div>
-     { this.state.gists.map(gist => <p>{gist.id}</p>)}
-     
+   /*<div>
+     {this.state.gists.map(gist => <p>{gist.id}</p>)}
+     const listGists = this.state.gists.map((gist, index) => 
+  <li key={index}>{gist.id}</li>
+  );
+
+
+  <ol>{this.state.gists.map(gist => (<li key ={gist.id}>{gist.id}</li>))}</ol>
+    </div>   gist.files['hello_world.py'].raw_url*/
+    <div>
+      <h1>LISTA GISTÓW</h1>
+      <ul>
+        
+          {this.state.gists.map(gist => (
+            <li key={gist.id}>{gist.id }</li>
+          ))}
+        </ul>
+    
     </div>
 
-  
-  
-  
+
     );
 }
 };
