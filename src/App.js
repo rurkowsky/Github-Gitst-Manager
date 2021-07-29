@@ -35,7 +35,7 @@ export default class Wrapper extends React.Component{
         const gists = response.data;
         this.setState({gists})
         console.log(gists);
-        //console.log(response.config);
+        //console.log(response.configddddd);
       })
       .catch((error) => {
         console.log(error);
