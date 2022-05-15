@@ -1,42 +1,80 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Wrapper from './App';
+import GithHubWrapper from './App.js';
 import reportWebVitals from './reportWebVitals';
+import App from './appp';
 class GistForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { content: ''}; 
+    this.state = { nazwa: ''};
+    this.state = { public: ''}
+  }
+ 
   mySubmitHandler = (event) => {
+    let gistPayload = {
+      "description": this.state.nazwa + ".txt",
+      "public": this.state.public,
+      "files": {
+        [this.state.nazwa + ".txt"] : {
+          "content": this.state.content
+        }
+      }
+
+    }
+    let token = window.localStorage.getItem('token')
+    let ghWrapper = new GithHubWrapper(token)
     event.preventDefault();
-    alert("Gist utworzony! ");
+    function creategist(){
+      ghWrapper.createGist(gistPayload).then((response) => console.log(response.data))
+    }
+    creategist()
+    alert("GIST Created!")
+  }
+  refreshPage = () =>{
+    window.location.reload();
   }
   myChangeHandler = (event) => {
-    this.setState({username: event.target.value});
+    this.setState({content: event.target.value});
+  }
+  myChangeHandlerdwa = (event) => {
+    this.setState({nazwa: event.target.value});
+  }
+  myChangeHandlertrzy = (event) => {
+    this.setState({public: event.target.value.toString()});
   }
   render() {
     return (
-      <form onSubmit={this.mySubmitHandler}>
-      <p><b>Utwórz nowy gist:</b></p>
-      <input type='text' onChange={this.myChangeHandler}/>
-      <input type='submit'/>
+      <div>
+       <div className='header'>GITHUB WRAPPER</div>
+     <form onSubmit={this.mySubmitHandler} className='gistform'>
+      <div className='creategist'><b>Create new GIST:</b></div>
+      <div className='name'>Name</div>
+      <input onChange = {this.myChangeHandlerdwa} className="inputname"></input>
+      
+      <div className='status'>Status</div>
+      <input type="radio" onChange = {this.myChangeHandlertrzy} name="true/false" value="true"/>Public
+      <br></br>
+      <input type="radio" onChange = {this.myChangeHandlertrzy} name="true/false" value="false"/>Private
+      
+      <div className="content">Content:</div>
+      <textarea className="inputname" name="gistcontent" rows="5" cols="20" onChange={this.myChangeHandler}/>
+      <br></br>
+      <input type='submit' className='submit' value='Create' onClick={this.refreshPage}/>
       </form>
+      </div>
+      
     );
   }
 }
-class SimpleForm2 extends React.Component {
-  render() {
-    return (
-      <form>
-        <b>SimpleForm</b>
-        Name:
-        <input type="text"/>
-      </form>
-    );
-  }
-}
+
 ReactDOM.render(
   <React.StrictMode>
-    <Wrapper />
+    <GithHubWrapper />
     <GistForm />
-    <SimpleForm2 />
+   
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
