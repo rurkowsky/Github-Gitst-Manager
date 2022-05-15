@@ -14,7 +14,7 @@ export default class GithHubWrapper extends React.Component {
       }
     })
   }
-
+//zmiany17:26
   getRequest(path) {
     return this.client.get(path)
   }
