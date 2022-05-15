@@ -1,6 +1,6 @@
 import React from 'react'
 const axios = require('axios');
-window.localStorage.setItem('token', "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");
+window.localStorage.setItem('token', "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");
 export default class GithHubWrapper extends React.Component {
   constructor(token) {
     super(token);
