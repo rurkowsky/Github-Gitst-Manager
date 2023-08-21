@@ -13,7 +13,7 @@ export default class GithHubWrapper extends React.Component {
         'Authorization': 'token ' + this.token
       }
     })
-    })
+   
   }
   getRequest(path) {
     return this.client.get(path)
