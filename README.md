@@ -1,5 +1,6 @@
 Github Gist Manager App with ReactJS. 
 Simply generate your github accessibility token on github page and paste as shown below
+
 ![Przechwytywanie3](https://github.com/rurkowsky/Gitstmanager/assets/74063543/33df1df9-bd77-46ad-a9f2-823d9309de3f)
 
 Then just run yarn start and enjoy your github gist management app 
