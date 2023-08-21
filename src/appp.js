@@ -125,8 +125,8 @@ var onChangedwa = (event) => {
      {gists}
 
      <ReactPaginate
-       previousLabel={"poprzednia"}
-       nextLabel={"następna"}
+       previousLabel={"previous"}
+       nextLabel={"next"}
        pageCount={pageCount}
        onPageChange={handlePageClick}
        containerClassName={"pagination"}
